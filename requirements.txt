@@ -1,5 +1,5 @@
 homeassistant==2026.6.0
-aiobmsble==0.28.0
+aiobmsble @ git+https://github.com/Bo-Louvier/aiobmsble.git@feat/jbd-up-protocol
 ruff~=0.15.0
 pylint~=4.0.6
 pylint-per-file-ignores~=3.2.1
