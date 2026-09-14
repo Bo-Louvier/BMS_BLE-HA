@@ -24,7 +24,9 @@ from .const import (
     ATTR_CELLS,
     ATTR_CHRG_MOSFET,
     ATTR_DISCHRG_MOSFET,
+    ATTR_FAN,
     ATTR_HEATER,
+    ATTR_PRECHRG_MOSFET,
     ATTR_PROBLEM,
     ATTR_PROBLEM_CODE,
     DOMAIN,
@@ -87,11 +89,25 @@ BINARY_SENSOR_TYPES: list[BmsBinaryEntityDescription] = [
         translation_key=ATTR_DISCHRG_MOSFET,
     ),
     BmsBinaryEntityDescription(
+        device_class=BinarySensorDeviceClass.POWER,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+        key=ATTR_PRECHRG_MOSFET,
+        translation_key=ATTR_PRECHRG_MOSFET,
+    ),
+    BmsBinaryEntityDescription(
         device_class=BinarySensorDeviceClass.HEAT,
         entity_category=EntityCategory.DIAGNOSTIC,
         entity_registry_enabled_default=False,
         key=ATTR_HEATER,
         translation_key=ATTR_HEATER,
+    ),
+    BmsBinaryEntityDescription(
+        device_class=BinarySensorDeviceClass.RUNNING,
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+        key=ATTR_FAN,
+        translation_key=ATTR_FAN,
     ),
     BmsBinaryEntityDescription(
         attr_fn=lambda data: (

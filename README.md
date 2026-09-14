@@ -127,13 +127,20 @@ Platform | Name | Unit | Description | Optional Attributes
 `binary_sensor`* | balancer | `bool` | indicates `True` if the battery balancer is active | cell bit mask
 `binary_sensor`* | chrg mosfet | `bool` | indicates `True` if the BMS charge MOSFET is activated
 `binary_sensor`* | dischrg mosfet | `bool` | indicates `True` if the BMS discharge MOSFET is activated
+`binary_sensor`* | fan | `bool` | indicates `True` if the BMS fan is running
 `binary_sensor`* | heater | `bool` | indicates `True` if the battery being heated
+`binary_sensor`* | precharge mosfet | `bool` | indicates `True` if the BMS precharge MOSFET is activated
 `binary_sensor` | problem | `bool` | indicates `True` if the BMS reports an issue or plausibility checks on values fail | problem code
+`sensor`* | charge current limit | `A` | maximum charge current currently allowed by the BMS
+`sensor`* | charge voltage limit | `V` | maximum charge voltage currently allowed by the BMS
 `sensor` | delta cell voltage | `V` | maximum difference between any two cells in a pack | cell voltages
 `sensor` | design capacity | `Ah` | manufacturer design capacity
+`sensor`* | discharge current limit | `A` | maximum discharge current currently allowed by the BMS
+`sensor`* | discharge voltage limit | `V` | minimum discharge voltage currently allowed by the BMS
 `sensor`* | link quality  | `%` | successful BMS queries from the last hundred update periods
 `sensor`* | max cell voltage | `V` | overall highest cell voltage in the system | cell number
 `sensor`* | min cell voltage | `V` | overall lowest cell voltage in the system | cell number
+`sensor`* | rated capacity | `Ah` | manufacturer nameplate capacity, if reported separately from design capacity
 `sensor`* | RSSI          | `dBm`| received signal strength indicator
 
 *) sensors are disabled by default, if required, [enable the entities](https://www.home-assistant.io/common-tasks/general/#enabling-or-disabling-entities).

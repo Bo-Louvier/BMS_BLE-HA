@@ -42,7 +42,9 @@ async def test_update(
             "balancer": 0x31,
             "chrg_mosfet": False,
             "dischrg_mosfet": True,
+            "fan": True,
             "heater": True,
+            "precharge_mosfet": True,
             "problem_code": 0x73,
             "battery_mode": BMSMode.ABSORPTION,
         }
@@ -82,6 +84,8 @@ async def test_update(
         ("charge_mosfet", "", STATE_OFF, None),
         ("discharge_mosfet", "", STATE_ON, None),
         ("heater", "", STATE_ON, None),
+        ("precharge_mosfet", "", STATE_ON, None),
+        ("fan", "", STATE_ON, None),
         ("balancer", "cells", STATE_ON, "10001100"),
     ):
         state = hass.states.get(f"{SEN_PREFIX}_{sensor}")

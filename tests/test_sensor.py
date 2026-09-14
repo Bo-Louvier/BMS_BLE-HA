@@ -33,7 +33,7 @@ from homeassistant.helpers.entity_component import async_update_entity
 import homeassistant.util.dt as dt_util
 
 from .bluetooth import inject_bluetooth_service_info_bleak
-from .conftest import mock_config, mock_devinfo_min
+from .conftest import mock_config, mock_devinfo_min, mock_update_full
 
 DEV_NAME: Final[str] = "sensor.config_test_dummy_bms"
 
@@ -203,3 +203,42 @@ async def test_update(
         assert pack_state.attributes.get(attribute, None) == (
             ref_value if bool_fixture else None
         ), f"failed to verify sensor '{sensor}' attribute '{attribute}'"
+
+
+@pytest.mark.usefixtures(
+    "enable_bluetooth", "patch_default_bleak_client", "patch_entity_enabled_default"
+)  # enable bluetooth, patch bleak client and enable all sensors
+@pytest.mark.parametrize("expected_lingering_timers", [True])
+async def test_optional_sensors(
+    monkeypatch: pytest.MonkeyPatch,
+    bt_discovery: BluetoothServiceInfoBleak,
+    hass: HomeAssistant,
+) -> None:
+    """Test optional sensors are created with values if the BMS provides them."""
+
+    bms_class: Final[str] = "aiobmsble.bms.dummy_bms.BMS"
+    monkeypatch.setattr(f"{bms_class}.device_info", mock_devinfo_min)
+    monkeypatch.setattr(f"{bms_class}.async_update", mock_update_full)
+
+    config: MockConfigEntry = mock_config()
+    config.add_to_hass(hass)
+
+    inject_bluetooth_service_info_bleak(hass, bt_discovery)
+
+    assert await hass.config_entries.async_setup(config.entry_id)
+    await hass.async_block_till_done(wait_background_tasks=True)
+
+    assert config.state is ConfigEntryState.LOADED
+    assert len(hass.states.async_all(["sensor"])) == SENSORS + LINK_SENSORS
+    for sensor, value in (
+        ("battery_health", "73"),
+        ("design_capacity", "173"),
+        ("rated_capacity", "50"),
+        ("charge_voltage_limit", "58.4"),
+        ("charge_current_limit", "100.0"),
+        ("discharge_voltage_limit", "44.8"),
+        ("discharge_current_limit", "100.0"),
+    ):
+        state: State | None = hass.states.get(f"{DEV_NAME}_{sensor}")
+        assert state is not None, f"no state for sensor {sensor}"
+        assert state.state == value, f"unexpected value for sensor {sensor}"

@@ -29,13 +29,25 @@
       "dischrg_mosfet": {
         "name": "Discharge MOSFET"
       },
+      "fan": {
+        "name": "Fan"
+      },
       "heater": {
         "name": "Heater"
+      },
+      "precharge_mosfet": {
+        "name": "Precharge MOSFET"
       }
     },
     "sensor": {
       "battery_health": {
         "name": "Battery health"
+      },
+      "chrg_current_limit": {
+        "name": "Charge current limit"
+      },
+      "chrg_voltage_limit": {
+        "name": "Charge voltage limit"
       },
       "cycles": {
         "name": "Cycles"
@@ -46,6 +58,12 @@
       "design_capacity": {
         "name": "Design capacity"
       },
+      "dischrg_current_limit": {
+        "name": "Discharge current limit"
+      },
+      "dischrg_voltage_limit": {
+        "name": "Discharge voltage limit"
+      },
       "link_quality": {
         "name": "Link quality"
       },
@@ -54,6 +72,9 @@
       },
       "min_cell_voltage": {
         "name": "Lowest cell voltage"
+      },
+      "rated_capacity": {
+        "name": "Rated capacity"
       },
       "runtime": {
         "name": "Runtime"

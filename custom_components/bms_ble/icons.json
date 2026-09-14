@@ -10,8 +10,14 @@
       "dischrg_mosfet": {
         "default": "mdi:battery-minus"
       },
+      "fan": {
+        "default": "mdi:fan"
+      },
       "heater": {
         "default": "mdi:snowflake-thermometer"
+      },
+      "precharge_mosfet": {
+        "default": "mdi:battery-plus-outline"
       },
       "problem": {
         "default": "mdi:battery-check",
@@ -23,6 +29,12 @@
     "sensor": {
       "battery_health": {
         "default": "mdi:battery-heart-variant"
+      },
+      "chrg_current_limit": {
+        "default": "mdi:current-dc"
+      },
+      "chrg_voltage_limit": {
+        "default": "mdi:battery-charging-high"
       },
       "current": {
         "default": "mdi:current-dc"
@@ -36,6 +48,12 @@
       "design_capacity": {
         "default": "mdi:battery"
       },
+      "dischrg_current_limit": {
+        "default": "mdi:current-dc"
+      },
+      "dischrg_voltage_limit": {
+        "default": "mdi:battery-charging-low"
+      },
       "link_quality": {
         "default": "mdi:link"
       },
@@ -44,6 +62,9 @@
       },
       "min_cell_voltage": {
         "default": "mdi:battery-arrow-down"
+      },
+      "rated_capacity": {
+        "default": "mdi:battery-high"
       },
       "rssi": {
         "default": "mdi:bluetooth-connect"

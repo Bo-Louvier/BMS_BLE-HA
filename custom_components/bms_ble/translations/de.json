@@ -29,13 +29,25 @@
       "dischrg_mosfet": {
         "name": "Entlade-MOSFET"
       },
+      "fan": {
+        "name": "Lüfter"
+      },
       "heater": {
         "name": "Heizung"
+      },
+      "precharge_mosfet": {
+        "name": "Vorlade-MOSFET"
       }
     },
     "sensor": {
       "battery_health": {
         "name": "Gesundheitszustand"
+      },
+      "chrg_current_limit": {
+        "name": "Ladestromgrenze"
+      },
+      "chrg_voltage_limit": {
+        "name": "Ladespannungsgrenze"
       },
       "cycles": {
         "name": "Zyklen"
@@ -45,7 +57,13 @@
       },
       "design_capacity": {
         "name": "Nominale Kapazität"
-      },      
+      },
+      "dischrg_current_limit": {
+        "name": "Entladestromgrenze"
+      },
+      "dischrg_voltage_limit": {
+        "name": "Entladespannungsgrenze"
+      },
       "link_quality": {
         "name": "Verbindungsqualität"
       },
@@ -54,6 +72,9 @@
       },
       "min_cell_voltage": {
         "name": "Niedrigste Zellspannung"
+      },
+      "rated_capacity": {
+        "name": "Nennkapazität"
       },
       "runtime": {
         "name": "Laufzeit"
@@ -99,7 +120,7 @@
               "keep_alive": "Verbindung zwischen Updates aufrechterhalten"
             },
             "data_description": {
-               "keep_alive": "Hält die Bluetooth-Verbindung zwischen den Update-Zyklen. Das Deaktivieren verschlechtert die Verbindungszuverlässigkeit des BMS und wird nur als letztes Mittel empfohlen, wenn ein Bluetooth-Adapter mit nur einer Verbindung (z. B. Realtek RTL8761B) mit anderen Integrationen geteilt wird. Verwende nach Möglichkeit einen dedizierten Bluetooth-Adapter."
+              "keep_alive": "Hält die Bluetooth-Verbindung zwischen den Update-Zyklen. Das Deaktivieren verschlechtert die Verbindungszuverlässigkeit des BMS und wird nur als letztes Mittel empfohlen, wenn ein Bluetooth-Adapter mit nur einer Verbindung (z. B. Realtek RTL8761B) mit anderen Integrationen geteilt wird. Verwende nach Möglichkeit einen dedizierten Bluetooth-Adapter."
             },
             "name": "Erweiterte Optionen"
           }

@@ -371,10 +371,17 @@ async def mock_update_full(self) -> BMSSample:
         "balancer": 0x0,
         "battery_charging": True,
         "battery_health": 73,
+        "chrg_current_limit": 100.0,
         "chrg_mosfet": False,
+        "chrg_voltage_limit": 58.4,
         "design_capacity": 173,
+        "dischrg_current_limit": 100.0,
         "dischrg_mosfet": False,
+        "dischrg_voltage_limit": 44.8,
+        "fan": False,
         "heater": False,
+        "precharge_mosfet": False,
+        "rated_capacity": 50,
     }
 
 

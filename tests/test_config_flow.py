@@ -131,8 +131,8 @@ async def test_bluetooth_discovery(
         (
             "full",
             (
-                max(BINARY_SENSORS - 4, 0),
-                SENSORS - 2,  # link sensors are disabled by default
+                max(BINARY_SENSORS - 6, 0),  # 6 binary sensors disabled by default
+                SENSORS - 7,  # min/max cell voltage, limits, rated capacity disabled by default
                 BINARY_SENSORS + SENSORS + LINK_SENSORS,
             ),
         ),
